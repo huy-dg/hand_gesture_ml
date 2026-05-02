@@ -2,6 +2,8 @@
 
 This repository demonstrates a full pipeline for real-time hand gesture recognition using MediaPipe and TensorFlow.
 
+![Hand landmarks](hand-landmarks.png)
+
 The project uses MediaPipe Tasks to extract 21 hand landmarks from webcam frames, then trains a small neural network in TensorFlow to classify gestures based on normalized landmark coordinates.
 Training happens in `src/training/training_hand_gesture.ipynb`, where collected landmark data is preprocessed relative to the wrist position, split into training and test sets, and trained with a simple dense model.
 After training, the model is exported to TensorFlow Lite (`gesture_classifier.tflite`) for fast inference in live applications.
@@ -91,6 +93,7 @@ The project uses these packages:
    ```bash
    pip install -r requirements.txt
    ```
+``Note``: If you run Python 3.12 and lower, the `tflite-runtime` package should be install instead of `ai-edge-litert`
 
 > If you already have a working local Python environment, make sure it can access the webcam and supports MediaPipe.
 
